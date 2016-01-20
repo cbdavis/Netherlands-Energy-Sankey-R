@@ -1,0 +1,34 @@
+From,To,Amount
+Renewable Energy,Heat Production,16
+Renewable Energy,Final Use,17
+MSW,Final Use,20
+Extraction,Nuclear,28
+Nuclear,Powerplants,28
+MSW,Powerplants,34
+Extraction,MSW,56
+Extraction,Crude Oil,65
+Crude Oil,Heat Production,65
+Coal,Final Use,75
+Renewable Energy,Powerplants,102
+Imports,Electricity,120
+Extraction,Renewable Energy,135
+Powerplants,Heat Production,207
+Coal,Powerplants,248
+Powerplants,Electricity,346
+Powerplants,Waste Heat,386
+Natural Gas,Powerplants,492
+Coal,Export,675
+Oil Products,Bunker Oil,676
+Bunker Oil,Final Use,676
+Imports,Natural Gas,810
+Natural Gas,Final Use,884
+Imports,Coal,1063
+Oil,Final Use,1188
+Oil Products,Oil,1188
+Crude Oil,Export,1816
+Natural Gas,Export,2007
+Crude Oil,Oil Products,2341
+Extraction,Natural Gas,2587
+Imports,Oil Products,3793
+Imports,Crude Oil,4157
+Oil Products,Export,4292
