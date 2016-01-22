@@ -10,6 +10,12 @@ output:
 
 ---
 
+Data sources:
+
+* http://www.compendiumvoordeleefomgeving.nl/indicatoren/nl0201-Energiebalans-Nederland-%28stroomdiagram%29.html?i=6-40
+* http://www.compendiumvoordeleefomgeving.nl/indicatoren/nl0053-Energiebalans-Nederland-%28tabel%29.html?i=6-40
+
+
 ```{r}
 #never ever ever convert strings to factors
 options(stringsAsFactors = FALSE)
@@ -45,8 +51,10 @@ sankeyPlot$set(
 ```
 
 ```{r SankeyPlot, comment = NA, results = "asis", tidy = F}
-#sankeyPlot$show('inline', include_assets = TRUE, cdn = TRUE)
-sankeyPlot$show('iframesrc', cdn = TRUE)
+# two options for rendering the sankey diagram:
+# inline or as an iframe
+sankeyPlot$show('inline', include_assets = TRUE, cdn = TRUE)
+#sankeyPlot$show('iframesrc', cdn = TRUE)
 
 # save the image as a standalone html file
 sankeyPlot$save('StandAloneSankey.html', standalone = TRUE)
