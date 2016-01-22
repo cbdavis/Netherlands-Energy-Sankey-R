@@ -45,8 +45,8 @@ sankeyPlot$set(
 ```
 
 ```{r SankeyPlot, comment = NA, results = "asis", tidy = F}
-sankeyPlot$show('inline', include_assets = TRUE, cdn = TRUE)
-#sankeyPlot$show('iframesrc', cdn = TRUE)
+#sankeyPlot$show('inline', include_assets = TRUE, cdn = TRUE)
+sankeyPlot$show('iframesrc', cdn = TRUE)
 
 # save the image as a standalone html file
 sankeyPlot$save('StandAloneSankey.html', standalone = TRUE)
