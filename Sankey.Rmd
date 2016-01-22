@@ -1,0 +1,48 @@
+---
+title: "Sankey Diagram of Energy Flows in the Netherlands"
+author: "Chris Davis"
+date: "January 22, 2016"
+output: html_document
+---
+
+```{r}
+#never ever ever convert strings to factors
+options(stringsAsFactors = FALSE)
+
+# to install rCharts you must do this once:
+#install.packages("devtools")
+#require(devtools)
+#install_github('ramnathv/rCharts')
+
+library(rCharts)
+
+df = read.csv("NLEnergyFlows.csv")
+
+colnames(df) <- c("source","target","value")
+df$source <- as.character(df$source)
+df$target <- as.character(df$target)
+
+# See http://blog.ouseful.info/2013/07/23/generating-sankey-diagrams-from-rcharts/
+# Only need the part at the bottom.  The main idea is that you need to have a CSV spreadsheet
+# where there are three columns representing the source, target and value of the flow between those two
+
+sankeyPlot <- rCharts$new()
+sankeyPlot$setLib('http://timelyportfolio.github.io/rCharts_d3_sankey')
+
+sankeyPlot$set(
+  data = df,
+  nodeWidth = 10,
+  nodePadding = 20,
+  layout = 900,
+  width = 900,
+  height = 400
+)
+```
+
+```{r SankeyPlot, comment = NA, results = "asis", tidy = F}
+sankeyPlot$show('inline', include_assets = TRUE, cdn = TRUE)
+#sankeyPlot$show('iframesrc', cdn = TRUE)
+
+# save the image as a standalone html file
+sankeyPlot$save('StandAloneSankey.html', standalone = TRUE)
+```
