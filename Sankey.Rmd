@@ -2,19 +2,16 @@
 title: "Sankey Diagram of Energy Flows in the Netherlands"
 author: "Chris Davis"
 date: "January 22, 2016"
-output:
-  html_document:
-    keep_md: yes
-  md_document:
-    variant: markdown_phpextra+backtick_code_blocks
-
+output: html_document
 ---
 
-Data sources:
+Data sources used:
 
-* http://www.compendiumvoordeleefomgeving.nl/indicatoren/nl0201-Energiebalans-Nederland-%28stroomdiagram%29.html?i=6-40
-* http://www.compendiumvoordeleefomgeving.nl/indicatoren/nl0053-Energiebalans-Nederland-%28tabel%29.html?i=6-40
+* [Stroomdiagram energie voor Nederland, 2013](http://www.compendiumvoordeleefomgeving.nl/indicatoren/nl0201-Energiebalans-Nederland-%28stroomdiagram%29.html?i=6-40)
+* [Aanbod en verbruik van energiedragers in Nederland, 2013](http://www.compendiumvoordeleefomgeving.nl/indicatoren/nl0053-Energiebalans-Nederland-%28tabel%29.html?i=6-40)
 
+More details can be found at [this blog post](http://blog.ouseful.info/2013/07/23/generating-sankey-diagrams-from-rcharts/).  The most relevant part is the bottom part of the post.  The main idea is that you need to have a CSV spreadsheet
+where there are three columns representing the source, target and value of the flow between those two.
 
 ```{r}
 #never ever ever convert strings to factors
@@ -32,10 +29,6 @@ df = read.csv("NLEnergyFlows.csv")
 colnames(df) <- c("source","target","value")
 df$source <- as.character(df$source)
 df$target <- as.character(df$target)
-
-# See http://blog.ouseful.info/2013/07/23/generating-sankey-diagrams-from-rcharts/
-# Only need the part at the bottom.  The main idea is that you need to have a CSV spreadsheet
-# where there are three columns representing the source, target and value of the flow between those two
 
 sankeyPlot <- rCharts$new()
 sankeyPlot$setLib('http://timelyportfolio.github.io/rCharts_d3_sankey')

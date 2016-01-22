@@ -68,11 +68,12 @@ img {
 </div>
 
 
-<p>Data sources:</p>
+<p>Data sources used:</p>
 <ul>
-<li><a href="http://www.compendiumvoordeleefomgeving.nl/indicatoren/nl0201-Energiebalans-Nederland-%28stroomdiagram%29.html?i=6-40">http://www.compendiumvoordeleefomgeving.nl/indicatoren/nl0201-Energiebalans-Nederland-%28stroomdiagram%29.html?i=6-40</a></li>
-<li><a href="http://www.compendiumvoordeleefomgeving.nl/indicatoren/nl0053-Energiebalans-Nederland-%28tabel%29.html?i=6-40">http://www.compendiumvoordeleefomgeving.nl/indicatoren/nl0053-Energiebalans-Nederland-%28tabel%29.html?i=6-40</a></li>
+<li><a href="http://www.compendiumvoordeleefomgeving.nl/indicatoren/nl0201-Energiebalans-Nederland-%28stroomdiagram%29.html?i=6-40">Stroomdiagram energie voor Nederland, 2013</a></li>
+<li><a href="http://www.compendiumvoordeleefomgeving.nl/indicatoren/nl0053-Energiebalans-Nederland-%28tabel%29.html?i=6-40">Aanbod en verbruik van energiedragers in Nederland, 2013</a></li>
 </ul>
+<p>More details can be found at <a href="http://blog.ouseful.info/2013/07/23/generating-sankey-diagrams-from-rcharts/">this blog post</a>. The most relevant part is the bottom part of the post. The main idea is that you need to have a CSV spreadsheet where there are three columns representing the source, target and value of the flow between those two.</p>
 <pre class="r"><code>#never ever ever convert strings to factors
 options(stringsAsFactors = FALSE)
 
@@ -88,10 +89,6 @@ df = read.csv(&quot;NLEnergyFlows.csv&quot;)
 colnames(df) &lt;- c(&quot;source&quot;,&quot;target&quot;,&quot;value&quot;)
 df$source &lt;- as.character(df$source)
 df$target &lt;- as.character(df$target)
-
-# See http://blog.ouseful.info/2013/07/23/generating-sankey-diagrams-from-rcharts/
-# Only need the part at the bottom.  The main idea is that you need to have a CSV spreadsheet
-# where there are three columns representing the source, target and value of the flow between those two
 
 sankeyPlot &lt;- rCharts$new()
 sankeyPlot$setLib('http://timelyportfolio.github.io/rCharts_d3_sankey')
@@ -119,7 +116,7 @@ sankeyPlot$show('inline', include_assets = TRUE, cdn = TRUE)</code></pre>
     height: 400px;
   }  
   </style>
-<div id="chart15846907a534" class="rChart rCharts_d3_sankey">
+<div id="chart177f31d2e213" class="rChart rCharts_d3_sankey">
 
 </div>
 <!--Attribution:
@@ -129,7 +126,7 @@ Mike Bostock http://bost.ocks.org/mike/sankey/
 <script>
 (function(){
 var params = {
- "dom": "chart15846907a534",
+ "dom": "chart177f31d2e213",
 "width":    900,
 "height":    400,
 "data": {
@@ -140,7 +137,7 @@ var params = {
 "nodeWidth":     10,
 "nodePadding":     20,
 "layout":    900,
-"id": "chart15846907a534" 
+"id": "chart177f31d2e213" 
 };
 
 params.units ? units = " " + params.units : units = "";
