@@ -55,5 +55,8 @@ sankeyPlot$show('inline', include_assets = TRUE, cdn = TRUE)
 #sankeyPlot$show('iframesrc', cdn = TRUE)
 
 # save the image as a standalone html file
-sankeyPlot$save('StandAloneSankey.html', standalone = TRUE)
+sankeyPlot$save('StandAloneSankey.html', standalone = TRUE, cdn = TRUE)
+
+# see https://github.com/ramnathv/rCharts/blob/b6246d3a4a47c26a8c1023178a83a4e35959bd2c/R/makeExamples.R
+# for examples of how to save to image
 ```
