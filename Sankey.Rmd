@@ -13,6 +13,11 @@ Data sources used:
 More details can be found at [this blog post](http://blog.ouseful.info/2013/07/23/generating-sankey-diagrams-from-rcharts/).  The most relevant part is the bottom part of the post.  The main idea is that you need to have a CSV spreadsheet
 where there are three columns representing the source, target and value of the flow between those two.
 
+TODO:
+* Install RStudio
+* Figure out how to save Sankey Diagram as png - need to convert svg in webpage somehow
+* install base64enc, xlsx
+
 ```{r}
 #never ever ever convert strings to factors
 options(stringsAsFactors = FALSE)
